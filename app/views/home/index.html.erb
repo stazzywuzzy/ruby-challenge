@@ -1,2 +1,9 @@
-<h1> Hellow World!</h1>
-This is my first Rails webpage....
+<% if user_signed_in? %>
+	<h1> Prime Number Engine</h1><br/>
+
+	<h2> You are in! </h2>
+<% else %>
+	<h1> Prime Number Engine</h1><br/>
+
+	<h2> Please sign up for an account to start your prime journey! </h2>
+<% end %>
