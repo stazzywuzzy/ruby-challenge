@@ -1,0 +1,27 @@
+<%= form_with(model: input) do |form| %>
+  <% if input.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(input.errors.count, "error") %> prohibited this input from being saved:</h2>
+
+      <ul>
+        <% input.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :number, class:"form-label" %>
+    <%= form.number_field :number, class:"form-control w-25", placeholder:"number" %>
+  </div>
+
+  <div class="field mb-3 visually-hidden">
+    <%= form.label :prime_number %>
+    <%= form.check_box :prime_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary"%>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<p>
+  <strong>Number:</strong>
+  <%= @input.number %>
+</p>
+
+<p>
+  <strong>Prime number:</strong>
+  <%= @input.prime_number %>
+</p>
+
+<%= link_to 'Edit', edit_input_path(@input), class:"btn btn-secondary" %>
+<%= link_to 'Back', inputs_path, class:"btn btn-secondary" %>
