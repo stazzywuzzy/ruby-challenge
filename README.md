@@ -11,13 +11,25 @@
 
 https://guides.rubyonrails.org/v5.0/getting_started.html
 
-## Available Scripts
+If Ruby and Rails are already installed, please make sure the versions are up to date.
+
+The versions can be checked by using "ruby -v" and "rails -v"
+
+## Project Setup
 
 In the project folder, please run:
 
 ### `bundle install --without production`
 
-to install the available bundles
+to install the available bundles.
+
+Then run:
+
+### 'rails webpacker:install'
+
+To migrate the db, run:
+
+### 'rails db:migrate'
 
 To start the project, please run:
 
@@ -33,35 +45,34 @@ Launches the test suites.<br />
 ### Deployment
 
 Steps to deploy to Heroku:
+Make a free account on Heroku.
 
-1. Make a free account on Heroku
+Download and install Heroku CLI (https://devcenter.heroku.com/articles/heroku-cli)
 
-2. Download and install Heroku CLI (https://devcenter.heroku.com/articles/heroku-cli)
-
-3. Once Heroku is installed, open the terminal pointing to the project and login to heroku
+Once Heroku is installed, open the terminal pointing to the project and login to heroku.
 
 ### 'heroku login'
 
-4. Login on the web browser, can close browser after.
+Login on the web browser, can close browser after.
 
-5. In the terminal, create a heroku app
+In the terminal, create a heroku app.
 
 ### 'heroku create'
 
-6. Can use "heroku rename {name}" to rename domain name
+Can use "heroku rename {name}" to rename domain name
 
-7. Upload SSH key to Heroku
+Upload SSH key to Heroku
 
 ### 'heroku keys:add'
 
-8. Push master to Heroku
+Push master to Heroku
 
 ### 'git push heroku master'
 
-9. Need to push the migration to Heroku, run
+Need to push the database to Heroku, run
 
 ### 'heroku run rails db:migrate'
 
-10. To open the web app, go the specified url or run:
+To open the web app, go the specified url or run:
 
 ### 'heroku open'
