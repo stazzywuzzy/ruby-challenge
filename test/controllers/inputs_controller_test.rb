@@ -3,9 +3,16 @@ require "test_helper"
 class InputsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @input = inputs(:one)
+    sign_in users(:regular)
   end
 
-  test "should get index" do
+  test "redirected if not logged in" do
+    sign_out :user
+    get inputs_url
+    assert_response :redirect
+  end
+
+  test "can get index" do
     get inputs_url
     assert_response :success
   end
@@ -17,25 +24,15 @@ class InputsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create input" do
     assert_difference('Input.count') do
-      post inputs_url, params: { input: { number: @input.number, prime_number: @input.prime_number } }
+      post inputs_url, params: { input: { number: @input.number } }
     end
 
-    assert_redirected_to input_url(Input.last)
+    assert_response :success
   end
 
   test "should show input" do
     get input_url(@input)
     assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_input_url(@input)
-    assert_response :success
-  end
-
-  test "should update input" do
-    patch input_url(@input), params: { input: { number: @input.number, prime_number: @input.prime_number } }
-    assert_redirected_to input_url(@input)
   end
 
   test "should destroy input" do

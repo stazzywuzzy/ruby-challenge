@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_233411) do
+ActiveRecord::Schema.define(version: 2021_05_09_021253) do
 
   create_table "inputs", force: :cascade do |t|
     t.integer "number"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_233411) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.string "email"
+    t.index ["email"], name: "index_inputs_on_email"
     t.index ["user_id"], name: "index_inputs_on_user_id"
   end
 
