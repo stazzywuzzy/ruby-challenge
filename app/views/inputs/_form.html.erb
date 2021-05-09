@@ -16,13 +16,8 @@
     <%= form.number_field :number, class:"form-control w-25", placeholder:"number" %>
   </div>
 
-  <div class="field mb-3 visually-hidden">
-    <%= form.label :prime_number %>
-    <%= form.check_box :prime_number %>
-  </div>
-
   <div class="field mb-3">
-    <%= form.number_field :user_id, id: :input_user_id, class:"form-control", value:current_user.id, type:"hidden" %>
+    <%= form.number_field :user_id, id: :input_user_id, value:current_user.id, type:"hidden" %>
   </div>
 
   <div class="actions">
