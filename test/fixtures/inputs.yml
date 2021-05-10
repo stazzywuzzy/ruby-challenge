@@ -6,6 +6,7 @@ one:
 two: 
   number: 11
 
-input_invalid: {}
+input_invalid:
+  number: 
 
 

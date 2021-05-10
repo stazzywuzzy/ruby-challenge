@@ -4,9 +4,10 @@ class InputsTest < ApplicationSystemTestCase
   setup do
     @input = inputs(:one)
     sign_in users(:regular)
+    @input_invalid = inputs(:input_invalid)
   end
 
-  test "creating an Input" do
+  test "creating an Input -> success" do
     visit inputs_url
     click_on "New Input"
 
@@ -17,7 +18,7 @@ class InputsTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
-  test "destroying an Input" do
+  test "destroying an Input -> success" do
     visit inputs_url
     page.accept_confirm do
       click_on "Destroy", match: :first
@@ -25,4 +26,16 @@ class InputsTest < ApplicationSystemTestCase
 
     assert_text "Input was successfully deleted."
   end
+
+  test "validation input number -> success" do
+    visit inputs_url
+    click_on "New Input"
+
+    fill_in "Number", with: @input_invalid.number
+    click_on "Create Input"
+
+    assert_no_text 
+
+  end
+
 end

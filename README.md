@@ -33,21 +33,22 @@ To migrate the db, run:
 
 To start the project, please run:
 
-### `rails s`
+### rails s
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `rails test`
+### rails test
 
 Launches the test suites.<br />
 
-### Deployment
+## Deployment Setup
 
-Steps to deploy to Heroku:
-Make a free account on Heroku.
+Need to have Heroku Account. If not, then please sign up for a free account at https://signup.heroku.com/
 
 Download and install Heroku CLI (https://devcenter.heroku.com/articles/heroku-cli)
+
+Steps to deploy to Heroku:
 
 Once Heroku is installed, open the terminal pointing to the project and login to heroku.
 

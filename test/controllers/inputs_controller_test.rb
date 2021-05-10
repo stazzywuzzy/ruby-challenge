@@ -43,15 +43,4 @@ class InputsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to inputs_url
   end
 
-
-  test "multi user login -> success" do
-    sign_in users(:user2)
-    sign_in users(:user3)
-    sign_in users(:user4)
-    sign_in users(:user5)
-
-    get inputs_url
-    assert_response :success
-  end
-
 end
