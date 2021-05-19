@@ -1,7 +1,7 @@
 class InputsController < ApplicationController
   before_action :set_input, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:destroy]
   def index
     @inputs = Input.all
   end
@@ -10,14 +10,16 @@ class InputsController < ApplicationController
   end
 
   def new
-    @input = Input.new
+    # @input = Input.new
+    @input = current_user.inputs.build
   end
 
   def edit
   end
 
   def create
-    @input = Input.new(input_params)
+    # @input = Input.new(input_params)
+    @input = current_user.inputs.build(input_params)
     if isPrime?(@input[:number])
       @input[:prime_number] = true
       puts(@input[:prime_number])
@@ -48,6 +50,11 @@ class InputsController < ApplicationController
       format.html { redirect_to inputs_url, notice: "Input was successfully deleted." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @input = current_user.inputs.find_by(id: params[:id])
+    redirect_to inputs_path, notice: "Not Authorized to make changes" if @input.nil?
   end
 
   private
