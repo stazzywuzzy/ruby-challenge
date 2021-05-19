@@ -19,9 +19,11 @@ class InputsController < ApplicationController
   def create
     @input = Input.new(input_params)
     if isPrime?(@input[:number])
-      @input[:prime_number] = 1
+      @input[:prime_number] = true
+      puts(@input[:prime_number])
     else
-      @input[:prime_number] = 0
+      @input[:prime_number] = false
+      puts(@input[:prime_number])
     end
 
     respond_to do |format|
